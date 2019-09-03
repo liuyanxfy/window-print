@@ -43,9 +43,11 @@ export default {
             this.bHtml = window.document.body.innerHTML;
             let selectHtml = this.bHtml.slice(this.bHtml.indexOf(this.startprint));
             selectHtml = selectHtml.slice(0, selectHtml.indexOf(this.endprint));
-            window.document.body.innerHTML = selectHtml
+            const iframe=document.createElement('iframe');
+            iframe.doc=selectHtml;
+            iframe.focus();
             window.print();
-            window.document.body.innerHTML = this.bHtml;
+            
 
         },
         // 上传预览
